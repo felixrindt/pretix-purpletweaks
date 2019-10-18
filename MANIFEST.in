@@ -1,0 +1,3 @@
+recursive-include pretix_drkmsppayment/static *
+recursive-include pretix_drkmsppayment/templates *
+recursive-include pretix_drkmsppayment/locale *

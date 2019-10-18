@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load l10n %}
+{% load eventurl %}
+{% load rich_text %}
+
+<div class="panel {{ panelclass }}">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			{% trans "Emergency Contact" %}
+		</h3>
+	</div>
+	<div class="panel-body">
+		{{ message }}
+		<dl class="dl-horizontal">
+		{% for l, v in contact_info %}
+				<dt>{{ l }}</dt>
+				<dd>{{ v }}</dd>
+		{% endfor %}
+		</dl>
+	</div>
+</div>
