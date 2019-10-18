@@ -82,8 +82,9 @@ def register_onpremise_contact_confirmpage_content(sender, request, **kwargs):
     if session_info:
         contact_info = ContactForm.label_formdata(session_info, sender).values()
 
-    template = get_template('pretix_drkmsppayment/onpremise_contact_card.html')
+    template = get_template('pretix_purpletweaks/onpremise_contact_card.html')
     return template.render({
+        'message': '',
         'contact_info': contact_info,
         'panelclass': 'panel-contact panel-primary'
     })
