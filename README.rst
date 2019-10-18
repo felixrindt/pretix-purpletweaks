@@ -8,9 +8,13 @@ This is code made public from a private plugin I once used at a non profit. I do
 Features
 --------
 
+**Checkout with only one event series date**
+
 If enabled in the settings, for an event series, checkout can only be started with a cart that only contains products from a single subevent. This might be useful for being able to track payment when using cash payment where the customers pay each date individually, although nowadays partial payments can also be made in the backend.
 
 .. image:: doc_images/settings.png
+
+**Emergency Contact**
 
 If enabled in the settings, customers must provide information for emergency contact similar to the invoice address in a second checkout step. It can also be made optional.
 The information is shown in the detail view of the order in front- and backend as well as in ticket layout variables.
@@ -18,6 +22,8 @@ This might be useful for parents who register their kids for an event.
 
 .. image:: doc_images/optional_emergency.png
 .. image:: doc_images/emergency.png
+
+**Fine-grained Payment Expiration and Availability**
 
 Two Payment Providers "Purple Manual Payment" and "Purple Cash Payment" are added.
 For these special settings can be configured additionally to their non-purple counterparts:
@@ -36,7 +42,7 @@ Development setup
 
 1. Make sure that you have a working `pretix development setup`_.
 
-2. Clone this repository, eg to ``local/pretix-purpletweaks```.
+2. Clone this repository, eg to ``local/pretix-purpletweaks``.
 
 3. Activate the virtual environment you use for pretix development.
 
