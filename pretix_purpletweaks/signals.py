@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from i18nfield.strings import LazyI18nString
 from pretix.base.services.cart import CartError
 from pretix.base.signals import (
-    layout_text_variables, register_data_exporters,
+    layout_text_variables, register_data_exporters, register_data_shredders,
     register_notification_types, register_payment_providers,
     requiredaction_display, validate_cart,
 )
@@ -25,9 +25,8 @@ from pretix.presale.signals import (
 from pretix.presale.views.cart import cart_session
 
 from .checkoutflow import ContactForm
-from .payment import (
-    PurpleCashPayment, PurpleManualPayment
-)
+from .payment import PurpleCashPayment, PurpleManualPayment
+from .shredder import OnPremiseContactShredder
 
 
 """
@@ -187,3 +186,8 @@ def navbar_settings(sender, request, **kwargs):
         'active': url.namespace == 'plugins:pretix_purpletweaks' and url.url_name.startswith('settings'),
     }]
 
+@receiver(register_data_shredders, dispatch_uid="register_onpremise_contact_shredder")
+def register_shredder(sender, **kwargs):
+    return [
+        OnPremiseContactShredder,
+    ]
