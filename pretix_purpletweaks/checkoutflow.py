@@ -74,13 +74,12 @@ class ContactStep(CartMixin, checkoutflow.TemplateFlowStep):
     def form(self):
         initial = {}
         try:
-            ia = InvoiceAddress.objects.get(pk=self.cart_session.get('invoice_address', 10000))
             initial.update({
-                    'name_parts': ia.name_parts,
-                    'street': ia.street,
-                    'zipcode': ia.zipcode,
-                    'city': ia.city
-                    })
+                    'name_parts': self.invoice_address.name_parts,
+                    'street': self.invoice_address.street,
+                    'zipcode': self.invoice_address.zipcode,
+                    'city': self.invoice_address.city
+            })
         except InvoiceAddress.DoesNotExist:
             pass
         telephone = self.cart_session.get('contact_form_data', {}).get('telephone', None)
