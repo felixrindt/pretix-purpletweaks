@@ -28,6 +28,7 @@ class ContactForm(forms.Form):
         self.request = kwargs.pop('request')
         initial = kwargs.get('initial', {})
         super().__init__(*args, **kwargs)
+        self.fields = OrderedDict(self.fields)
         self.fields['name_parts'] = NamePartsFormField(
                     max_length=255,
                     required=True,
