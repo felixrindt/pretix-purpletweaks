@@ -25,7 +25,7 @@ cmdclass = {
 
 setup(
     name='pretix-purpletweaks',
-    version='0.0.1',
+    version='0.1.0',
     description='This pretix adds some tweaks.',
     long_description=long_description,
     url='https://github.com/felixrindt/pretix-purpletweaks',

@@ -15,7 +15,7 @@ class PluginApp(AppConfig):
         )
         visible = True
         restricted = False
-        version = '0.0.1'
+        version = '0.1.0'
 
     def ready(self):
         from . import signals  # NOQA
