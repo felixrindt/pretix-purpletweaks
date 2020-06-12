@@ -1,0 +1,466 @@
+# pretix-drkmsp translation
+# Copyright (C) 2018 Felix Rindt
+# This file is distributed under the same license as the pretix-drkmsp package.
+# Felix Rindt <felix@rindt.me>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-12 20:36+0200\n"
+"PO-Revision-Date: 2018-01-12 12:00+01:00\n"
+"Last-Translator: Felix Rindt <felix@rindt.me>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: pretix_purpletweaks/__init__.py:11 pretix_purpletweaks/signals.py:181
+msgid "Purple Tweaks"
+msgstr "Purple Tweaks"
+
+#: pretix_purpletweaks/__init__.py:14
+msgid "This plugin adds various small features."
+msgstr "Dieses Plugin fügt mehrere kleine Funktionen hinzu."
+
+#: pretix_purpletweaks/__init__.py:31
+#, python-format
+msgid "Error while looking for following payment providers: %s."
+msgstr "Fehler beim Suchen der folgenden Zahlungsanbieter: %s."
+
+#: pretix_purpletweaks/checkoutflow.py:18
+#: pretix_purpletweaks/checkoutflow.py:51
+msgid "Telephone"
+msgstr "Telefon"
+
+#: pretix_purpletweaks/checkoutflow.py:19
+#: pretix_purpletweaks/checkoutflow.py:52
+msgid "Address"
+msgstr "Adresse"
+
+#: pretix_purpletweaks/checkoutflow.py:20
+msgid "Street and Number"
+msgstr "Straße und Hausnummer"
+
+#: pretix_purpletweaks/checkoutflow.py:22
+msgid "ZIP code"
+msgstr "Postleitzahl"
+
+#: pretix_purpletweaks/checkoutflow.py:23
+msgid "City"
+msgstr "Stadt"
+
+#: pretix_purpletweaks/checkoutflow.py:37
+#: pretix_purpletweaks/checkoutflow.py:50
+msgid "Name"
+msgstr "Name"
+
+#: pretix_purpletweaks/checkoutflow.py:53
+msgid "ZIP code and city"
+msgstr "PLZ und Ort"
+
+#: pretix_purpletweaks/checkoutflow.py:60 pretix_purpletweaks/shredder.py:8
+#: pretix_purpletweaks/templates/pretix_purpletweaks/checkoutcontactstep.html:14
+#: pretix_purpletweaks/templates/pretix_purpletweaks/onpremise_contact_card.html:9
+msgid "Emergency Contact"
+msgstr "Notfallkontakt"
+
+#: pretix_purpletweaks/checkoutflow.py:106
+msgid ""
+"We had difficulties processing your input. Please review the errors below."
+msgstr ""
+"Es gab Schwierigkeiten bei der Verarbeitung Ihrer Eingabe. Bitte schauen Sie "
+"sich die Fehler an."
+
+#: pretix_purpletweaks/datediff.py:91
+msgid "Order"
+msgstr "Bestellung"
+
+#: pretix_purpletweaks/datediff.py:92
+msgid "Event"
+msgstr "Veranstaltung"
+
+#: pretix_purpletweaks/datediff.py:95
+msgid "Not set"
+msgstr "Deaktiviert"
+
+#: pretix_purpletweaks/payment.py:45
+msgid "Block for individual customers"
+msgstr "Für private Kunden blockieren"
+
+#: pretix_purpletweaks/payment.py:46
+msgid ""
+"If enabled, customers who selected 'individual' in the invoice form wont see "
+"this payment method."
+msgstr ""
+"Wenn aktiviert, werden Kunden, die im Rechnungsformular Privatkunde "
+"ausgewählt haben, diese Zahlungsmethode nicht sehen."
+
+#: pretix_purpletweaks/payment.py:51
+msgid "Block for business customers"
+msgstr "Für Firmenkunden blockieren"
+
+#: pretix_purpletweaks/payment.py:52
+msgid ""
+"If enabled, customers who selected 'business' in the invoice form wont see "
+"this payment method."
+msgstr ""
+"Wenn aktiviert, werden Kunden, die im Rechnungsformular Firmenkunde "
+"ausgewählt haben, diese Zahlungsmethode nicht sehen."
+
+#: pretix_purpletweaks/payment.py:57
+msgid "Overwrite expiration date"
+msgstr "Ablaufdatum überschreiben"
+
+#: pretix_purpletweaks/payment.py:58
+msgid ""
+"If enabled, the configured payment term will be overwritten and the order's "
+"expiration date will be set accordingly."
+msgstr "Wenn aktiviert, wird das Ablaufdatum wie eingestellt überschrieben."
+
+#: pretix_purpletweaks/shredder.py:10
+msgid "This will remove customer on premise contact from orders."
+msgstr ""
+
+#: pretix_purpletweaks/signals.py:59
+#| msgid "Emergency Contact"
+msgid "Provide emergency contact"
+msgstr "Notfallkontakt angeben"
+
+#: pretix_purpletweaks/signals.py:61
+msgid ""
+"Check if you want to provide seperate contact information for the duration "
+"of the event."
+msgstr ""
+"Wählen Sie diese Option, wenn Sie für die Zeit der Veranstaltung abweichende "
+"Kontaktdaten angeben wollen."
+
+#: pretix_purpletweaks/signals.py:107
+msgid "Emergency Contact Name"
+msgstr "Notfallkontakt Name"
+
+#: pretix_purpletweaks/signals.py:112
+msgid "Emergency Contact Phone Number"
+msgstr "Notfallkontakt Telefonnummer"
+
+#: pretix_purpletweaks/signals.py:117
+msgid "Emergency Contact Street"
+msgstr "Notfallkontakt Straße"
+
+#: pretix_purpletweaks/signals.py:122
+msgid "Emergency Contact City"
+msgstr "Notfallkontakt Stadt"
+
+#: pretix_purpletweaks/signals.py:127
+msgid "Emergency Contact Street and City"
+msgstr "Notfallkontakt Straße und Stadt"
+
+#: pretix_purpletweaks/signals.py:172
+msgid ""
+"Sorry, you can only choose one event per order. Please create multiple "
+"orders to participate on multiple dates."
+msgstr ""
+"Sie können eine Bestellung nur für ein Event aufgeben. Bitte teilen Sie Ihre "
+"Bestellung auf, um an mehreren Terminen teilzunehmen."
+
+#: pretix_purpletweaks/templates/pretix_purpletweaks/checkoutcontactstep.html:6
+msgid "Who should be contacted in case of emergency?"
+msgstr "Wer soll im Notfall benachrichtigt werden?"
+
+#: pretix_purpletweaks/templates/pretix_purpletweaks/checkoutcontactstep.html:32
+msgid "Go back"
+msgstr "Zurück"
+
+#: pretix_purpletweaks/templates/pretix_purpletweaks/checkoutcontactstep.html:37
+msgid "Continue"
+msgstr "Fortfahren"
+
+#: pretix_purpletweaks/templates/pretix_purpletweaks/datediff.html:13
+msgid "days after order"
+msgstr "Tage nach der Bestellung"
+
+#: pretix_purpletweaks/templates/pretix_purpletweaks/datediff.html:16
+msgid "days before event"
+msgstr "Tage vor der Veranstaltung"
+
+#: pretix_purpletweaks/templates/pretix_purpletweaks/settings.html:9
+msgid "Options"
+msgstr "Optionen"
+
+#: pretix_purpletweaks/templates/pretix_purpletweaks/settings.html:15
+msgid "Save"
+msgstr "Speichern"
+
+#: pretix_purpletweaks/views.py:16
+msgid "Block checkout with positions for multiple subevents"
+msgstr "Kauf mit Positionen für verschiedene Termine blockieren"
+
+#: pretix_purpletweaks/views.py:18
+msgid "Let customers provide emergency contact information"
+msgstr "Kunden einen Notfallkontakt angeben lassen"
+
+#: pretix_purpletweaks/views.py:19
+msgid "Never"
+msgstr "Nie"
+
+#: pretix_purpletweaks/views.py:20
+msgid "Optional"
+msgstr "Optional"
+
+#: pretix_purpletweaks/views.py:21
+msgid "Always"
+msgstr "Immer"
+
+#: pretix_purpletweaks/views.py:24
+msgid "Show download area to customer"
+msgstr "Downloadbereich anzeigen (Kundenoberfläche)"
+
+#: pretix_purpletweaks/views.py:24
+msgid ""
+"In the download area, all tickets of that order can be downloaded without "
+"restriction."
+msgstr ""
+
+#: pretix_purpletweaks/views.py:25
+msgid "Show download area in administrive interface"
+msgstr "Downloadbereich anzeigen (Verwaltungsoberfläche)"
+
+#: pretix_purpletweaks/views.py:29
+msgid "Download area heading"
+msgstr "Downloadbereich Überschrift"
+
+#: pretix_purpletweaks/views.py:34
+msgid "Download area text"
+msgstr "Downloadbereich Text"
+
+#~| msgid "DRK MSP e.V."
+#~ msgid "DRKMSP Design"
+#~ msgstr "DRKMSP Design"
+
+#~ msgid ""
+#~ "This plugin lets you change the presale page design according to the "
+#~ "needs of DRK MSP e.V.."
+#~ msgstr ""
+#~ "Dieses Plugin ermöglicht es, das Pretix Design nach den Anforderungen des "
+#~ "DRK KV MSP e.V. zu ändern."
+
+#~ msgid "Participant List (Swimming)"
+#~ msgstr "Teilnahmeliste (Schwimmen)"
+
+#~ msgid "Check-in list"
+#~ msgstr "Check-in-Liste"
+
+#~ msgid "Check-in list (portrait PDF)"
+#~ msgstr "Check-in-Liste (Hochformat PDF)"
+
+#~ msgctxt "tablehead"
+#~ msgid "paid"
+#~ msgstr "bez."
+
+#~ msgid "DRK MSP e.V."
+#~ msgstr "DRK MSP e.V."
+
+#~| msgid "DRK MSP e.V."
+#~ msgid "DRKMSP design"
+#~ msgstr "DRKMSP Design"
+
+#~ msgid "Presale page design"
+#~ msgstr "Vorverkaufsseitendesign"
+
+#~ msgid "Default Pretix"
+#~ msgstr "Pretix Standard"
+
+#~ msgid "Wasserwacht 2020"
+#~ msgstr "Wasserwacht 2020"
+
+#~ msgid "Swimming"
+#~ msgstr "Schwimmen"
+
+#~ msgid "Swimming (Winter)"
+#~ msgstr "Schwimmen (Winter)"
+
+#~ msgid "First Aid"
+#~ msgstr "Erste Hilfe"
+
+#~| msgid "Text for further information section"
+#~ msgid "Text for further information section on swimming designs"
+#~ msgstr "Text für weitere Informationen Abschnitt in Schwimmen-Designs"
+
+#~| msgid "Text for contact section"
+#~ msgid "Text for contact section in swimming designs"
+#~ msgstr "Text für Kontaktinformationsabschnitt in Schwimmen-Designs"
+
+#~ msgid "DRKMSP Payment Provider"
+#~ msgstr "DRKMSP Zahlungsmethoden"
+
+#~ msgid ""
+#~ "This plugin provides special payment methods needed for DRKMSP e.V.. It "
+#~ "also restricts a cart to positions from one subevent."
+#~ msgstr ""
+#~ "Dieses Plugin stellt spezielle Zahlungsmethoden für DRKMSP e.V. zur "
+#~ "Verfügung. Zusätzlich können bei diesen Zahlungsmethoden weitere "
+#~ "Eigenschaften definiert werden. Es schränkt außerdem einen Einkauf auf "
+#~ "Produkte einer Unterveranstaltung ein."
+
+#~ msgid "Order using Organisation payment method"
+#~ msgstr "Bestellung, die Organisations Bezahlmethode nutzt"
+
+#, python-brace-format
+#~ msgid "Order {order.code} uses {pp.verbose_name}"
+#~ msgstr "Bestellung {order.code} nutzt {pp.verbose_name}"
+
+#~ msgid "Order code"
+#~ msgstr "Bestellnummer"
+
+#~ msgid "Order total"
+#~ msgstr "Gesamtbetrag"
+
+#~ msgid "Order date"
+#~ msgstr "Bestelldatum"
+
+#~ msgid "Order status"
+#~ msgstr "Bestellstatus"
+
+#~ msgid "Order positions"
+#~ msgstr "Bestellzeilen"
+
+#~ msgid "View order details"
+#~ msgstr "Bestelldetails anzeigen"
+
+#~ msgid "Invoice"
+#~ msgstr "Rechnung"
+
+#~ msgid "Payment information text"
+#~ msgstr "Zahlungsmethodeninformationstext"
+
+#~ msgid "Shown to the user when selecting a payment method."
+#~ msgstr "Wird dem Nutzer angezeigt, wenn er die Zahlungsmethode wählt."
+
+#~ msgid "Payment pending text"
+#~ msgstr "Zahlung ausstehend Text"
+
+#~ msgid "Shown to the user when viewing a pending payment order."
+#~ msgstr ""
+#~ "Wird dem Nutzer angezeigt und in der Email gesendet, wenn die Zahlung "
+#~ "aussteht."
+
+#~ msgid "Payment completed text"
+#~ msgstr "Zahlungs vollständig Text"
+
+#~ msgid "Shown to the user when viewing an order with completed payment."
+#~ msgstr "Wird dem Nutzer angezeigt, wenn die Zahlung abgeschlossen ist."
+
+#~ msgid "Separate contact information"
+#~ msgstr "Separate Kontaktinformationen"
+
+#~ msgid "Download area"
+#~ msgstr "Downloadbereich"
+
+#~ msgid ""
+#~ "Using the download area, a customer can download a pdf with all tickets "
+#~ "for the order, even if it is not paid. The file is rendered using the "
+#~ "PDFTicketOutput Plugin."
+#~ msgstr ""
+#~ "Im Downloadbereich können Kunden eine PDF mit allen Tickets der "
+#~ "Bestellung herunterladen, auch wenn sie noch nicht bezahlt wurde. Die "
+#~ "Datei wird mit dem PDFTicketOutput Plugin erstellt."
+
+#~ msgid "Look"
+#~ msgstr "Aussehen"
+
+#~ msgid "You requested an invalid ticket output type."
+#~ msgstr "Sie haben einen ungültigen Tickettyp angefragt."
+
+#~ msgid "Unknown order code or not authorized to access this order."
+#~ msgstr ""
+#~ "Unbekannte Bestellnummer oder fehlende Berechtigung zur Ansicht dieser "
+#~ "Bestellung."
+
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
+
+#~| msgid "On Premise Contact"
+#~ msgid "On Premise Name"
+#~ msgstr "Vor-Ort Kontakt"
+
+#~| msgid "On Premise Contact"
+#~ msgid "On Premise Phone Number"
+#~ msgstr "Vor-Ort Telefonnummer"
+
+#~| msgid "On Premise Contact"
+#~ msgid "On Premise Street"
+#~ msgstr "Vor-Ort Adresse"
+
+#~| msgid "On Premise Contact"
+#~ msgid "On Premise City"
+#~ msgstr "Vor-Ort Stadt"
+
+#~ msgid "How can we reach you during the event?"
+#~ msgstr "Wie können wir Sie während der Veranstaltung erreichen?"
+
+#~ msgid "Contact information"
+#~ msgstr "Kontaktinformation"
+
+#~ msgid "On Premise Contact"
+#~ msgstr "Vor-Ort Kontakt"
+
+#~ msgid "Full name"
+#~ msgstr "Voller Name"
+
+#~ msgid "Restrictions"
+#~ msgstr "Einschränkungen"
+
+#~ msgid "Include Payment method"
+#~ msgstr "Zahlungsmethode anzeigen"
+
+#~ msgid "Payment"
+#~ msgstr "Zahlung"
+
+#~ msgid "Product"
+#~ msgstr "Produkt"
+
+#~ msgid "Price"
+#~ msgstr "Preis"
+
+#~| msgid "Use DRK site design"
+#~ msgid "Use DRK Schwimmen site design"
+#~ msgstr "Nutze DRK Schwimmen Seitendesign"
+
+#~ msgid "Include QR-code secret"
+#~ msgstr "QR-code Geheimnis anzeigen"
+
+#~ msgid "Only paid orders"
+#~ msgstr "Nur bezahlte Bestellungen"
+
+#~ msgid "Sort by"
+#~ msgstr "Sortieren nach"
+
+#~ msgid "Attendee name"
+#~ msgstr "Name des Teilnehmers"
+
+#~ msgid "Include questions"
+#~ msgstr "Fragen anzeigen"
+
+#~ msgid "Check-in list (CSV)"
+#~ msgstr "Check-in-Liste (CSV)"
+
+#~ msgid "Paid"
+#~ msgstr "Bezahlt"
+
+#~ msgid "Secret"
+#~ msgstr "Geheimnis"
+
+#~ msgid "E-mail"
+#~ msgstr "E-mail"
+
+#~ msgctxt "subevent"
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "No"
+#~ msgstr "Nein"
