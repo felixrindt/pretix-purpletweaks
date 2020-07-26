@@ -100,7 +100,9 @@ def add_layout_text_variable(sender, **kwargs):
         if not order.meta_info or not 'onpremise_contact' in json.loads(order.meta_info):
             return ""
         data = ContactForm.label_formdata(json.loads(order.meta_info)['onpremise_contact'], order.event)
-        return ", ".join(e[1] for e in [data['street'], data['city']])
+        # Make it single-line
+        street = ", ".join(line.strip() for line in data['street'][1].splitlines())
+        return street + ", " + data['city'][1]
 
     return {
             "purple_onpremise_name": {
