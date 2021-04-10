@@ -83,7 +83,7 @@ class ContactStep(CartMixin, checkoutflow.TemplateFlowStep):
             })
         except InvoiceAddress.DoesNotExist:
             pass
-        telephone = self.cart_session.get('contact_form_data', {}).get('telephone', None)
+        telephone = self.cart_session.get('contact_form_data', {}).get('phone', None)
         if telephone:
             initial['telephone'] = telephone
         initial.update(self.cart_session.get('onpremise_contact', {}))

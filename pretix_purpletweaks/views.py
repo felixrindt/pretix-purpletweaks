@@ -42,8 +42,8 @@ class SettingsView(EventSettingsViewMixin, EventSettingsFormView):
     permission = 'can_change_event_settings'
 
     def get_success_url(self) -> str:
-        return reverse('plugins:pretix_purpletweaks:settings', kwargs={
+        return reverse('control:event.settings', kwargs={
             'organizer': self.request.event.organizer.slug,
-            'event': self.request.event.slug
+            'event': self.request.event.slug,
         })
 
