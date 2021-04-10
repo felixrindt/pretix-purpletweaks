@@ -1,21 +1,31 @@
+{% load eventurl %}
 {% load i18n %}
 {% load l10n %}
 {% load eventurl %}
 {% load rich_text %}
 
 <div class="panel {{ panelclass }}">
-	<div class="panel-heading">
-		<h3 class="panel-title">
-			{% trans "Emergency Contact" %}
-		</h3>
-	</div>
-	<div class="panel-body">
-		{{ message }}
-		<dl class="dl-horizontal">
-		{% for l, v in contact_info %}
-				<dt>{{ l }}</dt>
-				<dd>{{ v }}</dd>
-		{% endfor %}
-		</dl>
-	</div>
+    <div class="panel-heading">
+        {% if event %}
+            <div class="pull-right flip">
+                <a href="{% eventurl event "presale:event.checkout" step="onpremisecontact" %}"
+                   aria-label="{% trans "Modify emergency contact information" %}">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                    {% trans "Modify" %}
+                </a>
+            </div>
+        {% endif %}
+        <h3 class="panel-title">
+            {% trans "Emergency Contact" %}
+        </h3>
+    </div>
+    <div class="panel-body">
+        {{ message }}
+        <dl class="dl-horizontal">
+            {% for l, v in contact_info %}
+                <dt>{{ l }}</dt>
+                <dd>{{ v }}</dd>
+            {% endfor %}
+        </dl>
+    </div>
 </div>

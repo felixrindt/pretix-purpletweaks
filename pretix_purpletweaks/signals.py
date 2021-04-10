@@ -85,7 +85,8 @@ def register_onpremise_contact_confirmpage_content(sender, request, **kwargs):
     return template.render({
         'message': '',
         'contact_info': contact_info,
-        'panelclass': 'panel-contact panel-primary'
+        'panelclass': 'panel-contact panel-primary',
+        'event': sender,
     })
 
 
@@ -150,9 +151,10 @@ def get_order_info_onpremise_contact(order=None, paneltype='panel-default'):
             or contact_form_data.get('has_onpremise_contact', False)):
         return ""
     else:
+        formdata = json.loads(order.meta_info).get('onpremise_contact')
         return template.render({
             'message': '',
-            'contact_info': ContactForm.label_formdata(json.loads(order.meta_info).get('onpremise_contact', ""), order.event).values(),
+            'contact_info': ContactForm.label_formdata(formdata, order.event).values() if formdata else None,
             'panelclass': paneltype
         })
 
