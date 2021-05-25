@@ -11,7 +11,7 @@ from pretix.base.services.cart import CartError
 from pretix.base.signals import (
     layout_text_variables, register_data_exporters, register_data_shredders,
     register_notification_types, register_payment_providers,
-    requiredaction_display, validate_cart,
+    validate_cart,
 )
 from pretix.control.signals import (
     nav_event_settings, order_info as control_order_info,

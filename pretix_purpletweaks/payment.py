@@ -9,7 +9,7 @@ from django.template.loader import get_template
 from django.utils.translation import ugettext_lazy as _
 from i18nfield.fields import I18nFormField, I18nTextarea
 from i18nfield.strings import LazyI18nString
-from pretix.base.models import Order, RequiredAction
+from pretix.base.models import Order
 from pretix.base.payment import ManualPayment, BasePaymentProvider
 from pretix.base.templatetags.rich_text import rich_text
 from pretix.presale.views.cart import get_or_create_cart_id
