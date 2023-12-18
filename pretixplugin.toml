@@ -1,0 +1,5 @@
+[plugin]
+package = "pretix-purpletweaks"
+modules = [ "pretix_purpletweaks" ]
+marketplace_name = "purpletweaks"
+

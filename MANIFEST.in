@@ -1,3 +1,5 @@
 recursive-include pretix_purpletweaks/static *
 recursive-include pretix_purpletweaks/templates *
 recursive-include pretix_purpletweaks/locale *
+include LICENSE
+exclude .gitlab-ci.yml

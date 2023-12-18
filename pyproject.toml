@@ -1,0 +1,42 @@
+[project]
+name = "pretix-purpletweaks"
+dynamic = ["version"]
+description = "This is a plugin for pretix that has various features that can be turned on/off."
+readme = "README.rst"
+license = {text = "Apache"}
+keywords = ["pretix"]
+authors = [
+    {name = "Felix Rindt", email = "felix@rindt.me"},
+]
+maintainers = [
+    {name = "Felix Rindt", email = "felix@rindt.me"},
+]
+
+dependencies = [
+]
+
+[project.entry-points."pretix.plugin"]
+pretix_purpletweaks = "pretix_purpletweaks:PretixPluginMeta"
+
+[project.entry-points."distutils.commands"]
+build = "pretix_plugin_build.build:CustomBuild"
+
+[build-system]
+requires = [
+    "setuptools",
+    "pretix-plugin-build",
+]
+
+[project.urls]
+homepage = "https://github.com/felixrindt/pretix-purpletweaks"
+repository = "https://github.com/felixrindt/pretix-purpletweaks"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "pretix_purpletweaks.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pretix*"]
+namespaces = false
