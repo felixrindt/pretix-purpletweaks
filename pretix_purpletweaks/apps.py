@@ -26,17 +26,3 @@ class PluginApp(PluginConfig):
 
     def ready(self):
         from . import signals  # NOQA
-
-    @property
-    def compatibility_errors(self):
-        needed = []
-        try:
-            from pretix_cashpayment.payment import CashPayment
-        except:
-            needed.append("pretix-cashpayment")
-        if needed:
-            return [
-                gettext_lazy("Error while looking for following payment providers: %s.")
-                % ", ".join(needed)
-            ]
-        return None

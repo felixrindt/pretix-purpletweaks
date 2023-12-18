@@ -4,7 +4,6 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from pretix.base.payment import ManualPayment
 from pretix.presale.views.cart import get_or_create_cart_id
-from pretix_cashpayment.payment import CashPayment
 
 from .datediff import (
     DateDiffField,
