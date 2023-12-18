@@ -13,6 +13,7 @@ maintainers = [
 ]
 
 dependencies = [
+    "pretix>=2023.10"
 ]
 
 [project.entry-points."pretix.plugin"]

@@ -121,8 +121,8 @@ class PurplePaymentMixin(object):
             order.save()
 
 
-class PurpleCashPayment(PurplePaymentMixin, CashPayment):
-    pass
+# class PurpleCashPayment(PurplePaymentMixin, CashPayment):
+#     pass
 
 
 class PurpleManualPayment(PurplePaymentMixin, ManualPayment):

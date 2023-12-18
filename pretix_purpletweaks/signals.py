@@ -5,31 +5,25 @@ from django.template.loader import get_template
 from django.urls import resolve, reverse
 from django.utils.translation import gettext_lazy as _
 from functools import partial
-from i18nfield.strings import LazyI18nString
 from pretix.base.services.cart import CartError
 from pretix.base.signals import (
     layout_text_variables,
-    register_data_exporters,
     register_data_shredders,
-    register_notification_types,
     register_payment_providers,
     validate_cart,
 )
 from pretix.control.signals import nav_event_settings, order_info as control_order_info
-from pretix.multidomain.urlreverse import eventreverse
 from pretix.presale.signals import (
     checkout_confirm_page_content,
     checkout_flow_steps,
     contact_form_fields,
-    front_page_bottom,
-    html_head,
     order_info as presale_order_info,
     order_meta_from_request,
 )
 from pretix.presale.views.cart import cart_session
 
 from .checkoutflow import ContactForm
-from .payment import PurpleCashPayment, PurpleManualPayment
+from .payment import PurpleManualPayment
 from .shredder import OnPremiseContactShredder
 
 """
@@ -37,9 +31,9 @@ PAYMENT PROVIDERS
 """
 
 
-@receiver(register_payment_providers, dispatch_uid="payment_purpletweaks.registercash")
-def register_cashpayment(sender, **kwargs):
-    return PurpleCashPayment
+# @receiver(register_payment_providers, dispatch_uid="payment_purpletweaks.registercash")
+# def register_cashpayment(sender, **kwargs):
+#     return PurpleCashPayment
 
 
 @receiver(
