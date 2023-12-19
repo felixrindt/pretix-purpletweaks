@@ -92,9 +92,8 @@ class PurplePaymentMixin(object):
         user will not be able to select this payment method. This will only be called
         during checkout, not on retrying.
         """
-        return self._is_still_available(
-            cart_id=get_or_create_cart_id(request)
-        ) and self._is_allowed_for_customer_type(request=request)
+
+        return super().is_allowed(request, total) and self._is_allowed_for_customer_type(request=request)
 
     def order_change_allowed(self, order) -> bool:
         """
@@ -103,7 +102,6 @@ class PurplePaymentMixin(object):
         This implementation checks for the _availability_date setting to be either unset or in the future
         aswell as wether the customer should see this payment method based on the invoice form
         """
-        # return self._is_still_available(order=order) and self._i, total=_is_allowed_for_customer_type(order=order)
         return False
 
     def execute_payment(self, request, payment) -> str:
