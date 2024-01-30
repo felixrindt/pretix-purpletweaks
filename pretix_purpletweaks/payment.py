@@ -1,8 +1,7 @@
-
 from collections import OrderedDict
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from pretix.base.payment import ManualPayment
+from pretix.base.payment import ManualPayment, BasePaymentProvider
 from pretix.presale.views.cart import get_or_create_cart_id
 
 from .datediff import (
@@ -13,13 +12,25 @@ from .datediff import (
 
 
 class PurplePaymentMixin(object):
+    index = 0
+    is_implicit = False
+
     @property
     def identifier(self):
-        return "purple_{}".format(super().identifier)
+        base = "purple_{}".format(super().identifier)
+        if self.index > 0:
+            # for backwards compatibility, we add the index to the identifier
+            # if it's not the first payment method
+            base += "_{}".format(self.index)
+        return base
 
     @property
     def verbose_name(self):
-        return "Purple {}".format(super().verbose_name)
+        return "Purple {} {} ({})".format(
+            super().verbose_name,
+            self.index,
+            self.public_name,
+        )
 
     @property
     def settings_form_fields(self) -> dict:
@@ -93,7 +104,9 @@ class PurplePaymentMixin(object):
         during checkout, not on retrying.
         """
 
-        return super().is_allowed(request, total) and self._is_allowed_for_customer_type(request=request)
+        return super().is_allowed(
+            request, total
+        ) and self._is_allowed_for_customer_type(request=request)
 
     def order_change_allowed(self, order) -> bool:
         """
@@ -118,9 +131,13 @@ class PurplePaymentMixin(object):
             order.save()
 
 
-# class PurpleCashPayment(PurplePaymentMixin, CashPayment):
-#     pass
+class PurpleManualPayment1(PurplePaymentMixin, ManualPayment):
+    index = 0
 
 
-class PurpleManualPayment(PurplePaymentMixin, ManualPayment):
-    is_implicit = False
+class PurpleManualPayment2(PurplePaymentMixin, ManualPayment):
+    index = 1
+
+
+class PurpleManualPayment3(PurplePaymentMixin, ManualPayment):
+    index = 2

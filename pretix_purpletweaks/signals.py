@@ -11,6 +11,7 @@ from pretix.base.signals import (
     register_data_shredders,
     register_payment_providers,
     validate_cart,
+    register_data_exporters,
 )
 from pretix.control.signals import nav_event_settings, order_info as control_order_info
 from pretix.presale.signals import (
@@ -23,7 +24,7 @@ from pretix.presale.signals import (
 from pretix.presale.views.cart import cart_session
 
 from .checkoutflow import ContactForm
-from .payment import PurpleManualPayment
+from .payment import PurpleManualPayment1, PurpleManualPayment2, PurpleManualPayment3
 from .shredder import OnPremiseContactShredder
 
 """
@@ -40,7 +41,25 @@ PAYMENT PROVIDERS
     register_payment_providers, dispatch_uid="payment_purpletweaks.registerinvoice"
 )
 def register_manualpayment(sender, **kwargs):
-    return PurpleManualPayment
+    return [
+        PurpleManualPayment1,
+        PurpleManualPayment2,
+        PurpleManualPayment3,
+    ]
+
+
+"""
+EXPORTERS
+"""
+
+
+@receiver(
+    register_data_exporters, dispatch_uid="payment_purpletweaks.registerexporters"
+)
+def register_exporters(sender, **kwargs):
+    from .exporters import PortraitPDFCheckinList
+
+    return PortraitPDFCheckinList
 
 
 """
