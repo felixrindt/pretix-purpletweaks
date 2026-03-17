@@ -19,13 +19,14 @@ from pretix.presale.signals import (
     checkout_flow_steps,
     contact_form_fields,
     order_info as presale_order_info,
-    order_meta_from_request,
+    order_meta_from_request, html_head,
 )
 from pretix.presale.views.cart import cart_session
 
 from .checkoutflow import ContactForm
 from .payment import PurpleManualPayment1, PurpleManualPayment2, PurpleManualPayment3
 from .shredder import OnPremiseContactShredder
+from django.conf import settings
 
 """
 PAYMENT PROVIDERS
@@ -230,6 +231,26 @@ def get_order_info_onpremise_contact(order=None, paneltype="panel-default"):
                 "panelclass": paneltype,
             }
         )
+
+"""
+CUSTOM CSS
+"""
+
+@receiver(html_head, dispatch_uid="pretix_purpletweaks.signals.presale_html_head_customcss")
+def presale_html_head_customcss(sender, request, **kwargs):
+    custom_css = sender.settings.get("event_page_css", as_type=str)
+    if not custom_css.strip():
+        return ""
+    if not settings.CONFIG_FILE.getboolean('purpletweaks', 'enable_custom_css', fallback=False):
+        return ""
+    template = get_template("pretix_purpletweaks/custom_css.html")
+    ctx = {
+        "event": sender,
+        "version": hash(sender.settings.event_page_css),
+    }
+    return template.render(ctx)
+
+
 
 
 """

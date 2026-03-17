@@ -3,11 +3,12 @@ from django.urls import resolve, reverse
 from django.utils.translation import gettext_lazy as _
 from i18nfield.forms import I18nFormField, I18nTextInput
 from pretix.base.forms import SettingsForm
+from django.http import HttpResponse
 from pretix.base.models import Event
 from pretix.control.views.event import EventSettingsFormView, EventSettingsViewMixin
 from pretix.multidomain.urlreverse import eventreverse
 from pretix.presale.views.order import OrderDownload
-
+from django.conf import settings
 
 class PurpleSettingsForm(SettingsForm):
     block_multisubevent_checkout = forms.BooleanField(
@@ -21,25 +22,11 @@ class PurpleSettingsForm(SettingsForm):
             ("always", _("Always")),
         ],
     )
-    show_downloadarea = forms.BooleanField(
-        label=_("Show download area to customer"),
-        help_text=_(
-            "In the download area, all tickets of that order can be downloaded without restriction."
-        ),
+    event_page_css = forms.CharField(
+        label=_("Event page CSS"),
+        widget=forms.Textarea,
         required=False,
-    )
-    show_downloadarea_control = forms.BooleanField(
-        label=_("Show download area in administrive interface"), required=False
-    )
-    downloadarea_heading = I18nFormField(
-        widget=I18nTextInput,
-        required=False,
-        label=_("Download area heading"),
-    )
-    downloadarea_text = I18nFormField(
-        widget=I18nTextInput,
-        required=False,
-        label=_("Download area text"),
+        help_text=_("CSS to render on event related pages. This feature must be enabled in the config file.")
     )
 
 
@@ -57,3 +44,12 @@ class SettingsView(EventSettingsViewMixin, EventSettingsFormView):
                 "event": self.request.event.slug,
             },
         )
+
+
+def custom_css(request, *args, **kwargs):
+    event = request.event
+    css_content = event.settings.event_page_css
+    return HttpResponse(
+        css_content,
+        content_type="text/css",
+    )

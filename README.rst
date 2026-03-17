@@ -8,6 +8,15 @@ This is code made public from a private plugin I once used at a non profit. I do
 Features
 --------
 
+**Custom CSS on event pages**
+
+For when you want to (visually) hack away at the presale frontend, you can provide arbitrary content
+that will be included as css in presale pages related to the event. For security reasons, this
+feature must be activated in ``pretix.cfg`` with::
+
+    [purpletweaks]
+    enable_custom_css = True
+
 **Checkout with only one event series date**
 
 If enabled in the settings, for an event series, checkout can only be started with a cart that only contains products from a single subevent. This might be useful for being able to track payment when using cash payment where the customers pay each date individually, although nowadays partial payments can also be made in the backend.
@@ -25,8 +34,8 @@ This might be useful for parents who register their kids for an event.
 
 **Fine-grained Payment Expiration and Availability**
 
-Two Payment Providers "Purple Manual Payment" and "Purple Cash Payment" are added.
-For these special settings can be configured additionally to their non-purple counterparts:
+Two Payment Providers "Purple Manual Payment" 0, 1 and 2 are added.
+For these special settings can be configured additionally to their non-purple counterpart:
 
 - Payment due date can be configured per payment provider as a relative date before the event or after the order placement.
 - Payment method can be made available based on wether the customer chose `individual` or `business` customer as per the invoice address form.
@@ -35,7 +44,6 @@ This might be useful if you want to send invoices to business customers, who wil
 
 .. image:: doc_images/payment_settings.png
 
-The payment providers are hardcoded, one should **install** the plugin `pretix-cashpayment` as a dependency.
 
 Development setup
 -----------------

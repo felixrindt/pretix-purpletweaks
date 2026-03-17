@@ -1,7 +1,7 @@
 from django.urls import re_path
 
 from . import views
-from .views import SettingsView
+from .views import SettingsView, custom_css
 
 urlpatterns = [
     re_path(
@@ -11,4 +11,10 @@ urlpatterns = [
     ),
 ]
 
-event_patterns = []
+event_patterns = [
+    re_path(
+        r"custom.css",
+        custom_css,
+        name="custom_css",
+    )
+]
