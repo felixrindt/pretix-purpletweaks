@@ -238,7 +238,7 @@ CUSTOM CSS
 
 @receiver(html_head, dispatch_uid="pretix_purpletweaks.signals.presale_html_head_customcss")
 def presale_html_head_customcss(sender, request, **kwargs):
-    custom_css = sender.settings.get("event_page_css", as_type=str)
+    custom_css = sender.settings.get("event_page_css", default="", as_type=str)
     if not custom_css.strip():
         return ""
     if not settings.CONFIG_FILE.getboolean('purpletweaks', 'enable_custom_css', fallback=False):
