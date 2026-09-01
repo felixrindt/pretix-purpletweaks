@@ -131,7 +131,7 @@ msgstr "Notfallkontakt angeben"
 
 #: pretix_purpletweaks/signals.py:61
 msgid ""
-"Check if you want to provide seperate contact information for the duration "
+"Check if you want to provide separate contact information for the duration "
 "of the event."
 msgstr ""
 "Wählen Sie diese Option, wenn Sie für die Zeit der Veranstaltung abweichende "
