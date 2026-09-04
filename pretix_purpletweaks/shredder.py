@@ -1,4 +1,5 @@
 import json
+
 from django.db import transaction
 from django.utils.translation import gettext_lazy as _
 from pretix.base.shredder import BaseDataShredder
@@ -17,13 +18,17 @@ class OnPremiseContactShredder(BaseDataShredder):
         return json.loads(order.meta_info)["onpremise_contact"]
 
     def generate_files(self):
-        yield "emergency_contact.json", "application/json", json.dumps(
-            {
-                order.code: self._contact(order)
-                for order in self.event.orders.all()
-                if self._contact(order)
-            },
-            indent=4,
+        yield (
+            "emergency_contact.json",
+            "application/json",
+            json.dumps(
+                {
+                    order.code: self._contact(order)
+                    for order in self.event.orders.all()
+                    if self._contact(order)
+                },
+                indent=4,
+            ),
         )
 
     @transaction.atomic

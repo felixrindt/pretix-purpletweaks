@@ -1,6 +1,5 @@
 from django.urls import re_path
 
-from . import views
 from .views import SettingsView, custom_css
 
 urlpatterns = [

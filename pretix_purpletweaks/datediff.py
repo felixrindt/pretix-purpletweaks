@@ -1,8 +1,8 @@
-from typing import Union
 
 import datetime
-import pytz
 from collections import namedtuple
+
+import pytz
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
@@ -21,7 +21,6 @@ class DateDiffWrapper:
         self.data = data
 
     def datetime(self, order) -> datetime.datetime:
-        from pretix.base.models import SubEvent
 
         event = order.event
         tz = pytz.timezone(event.settings.timezone)
@@ -45,7 +44,7 @@ class DateDiffWrapper:
         return new_date
 
     def to_string(self) -> str:
-        return "DATEDIFF/{}/{}/".format(self.data.days, self.data.mode)
+        return f"DATEDIFF/{self.data.days}/{self.data.mode}/"
 
     @classmethod
     def from_string(cls, input: str):
@@ -126,9 +125,7 @@ class DateDiffField(forms.MultiValueField):
             ).to_string()
 
     def clean(self, value):
-        if value[0] == "after_order" and value[1] is None:
-            raise ValidationError(self.error_messages["incomplete"])
-        elif value[0] == "before_event" and value[2] is None:
+        if value[0] == "after_order" and value[1] is None or value[0] == "before_event" and value[2] is None:
             raise ValidationError(self.error_messages["incomplete"])
 
         return super().clean(value)

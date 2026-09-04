@@ -1,14 +1,11 @@
 from django import forms
-from django.urls import resolve, reverse
-from django.utils.translation import gettext_lazy as _
-from i18nfield.forms import I18nFormField, I18nTextInput
-from pretix.base.forms import SettingsForm
 from django.http import HttpResponse
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+from pretix.base.forms import SettingsForm
 from pretix.base.models import Event
 from pretix.control.views.event import EventSettingsFormView, EventSettingsViewMixin
-from pretix.multidomain.urlreverse import eventreverse
-from pretix.presale.views.order import OrderDownload
-from django.conf import settings
+
 
 class PurpleSettingsForm(SettingsForm):
     block_multisubevent_checkout = forms.BooleanField(
@@ -26,7 +23,9 @@ class PurpleSettingsForm(SettingsForm):
         label=_("Event page CSS"),
         widget=forms.Textarea,
         required=False,
-        help_text=_("CSS to render on event related pages. This feature must be enabled in the config file.")
+        help_text=_(
+            "CSS to render on event related pages. This feature must be enabled in the config file."
+        ),
     )
 
 

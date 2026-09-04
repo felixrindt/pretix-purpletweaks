@@ -1,57 +1,26 @@
-from collections import OrderedDict
-from datetime import timezone
 
 import bleach
-import dateutil.parser
-from django import forms
-from django.db.models import (
-    Case,
-    Exists,
-    F,
-    Max,
-    OuterRef,
-    Q,
-    Subquery,
-    Value,
-    When,
-)
-from django.db.models.functions import Coalesce, NullIf
-from django.urls import reverse
 from django.utils.formats import date_format
-from django.utils.timezone import is_aware, make_aware, now
 from django.utils.translation import (
     gettext as _,
+)
+from django.utils.translation import (
     gettext_lazy,
     pgettext,
     pgettext_lazy,
 )
-from reportlab.lib.units import mm
-from reportlab.platypus import Flowable, Paragraph, Spacer, Table, TableStyle
-
-from pretix.base.exporter import BaseExporter, ListExporter
 from pretix.base.models import (
-    Checkin,
-    InvoiceAddress,
     Order,
-    OrderPosition,
     Question,
 )
-from pretix.base.settings import PERSON_NAME_SCHEMES
 from pretix.base.templatetags.money import money_filter
-from pretix.base.timeframes import (
-    DateFrameField,
-    resolve_timeframe_to_datetime_start_inclusive_end_exclusive,
-)
-from pretix.control.forms.widgets import Select2
-from pretix.helpers.filenames import safe_for_filename
-from pretix.helpers.iter import chunked_iterable
-from pretix.helpers.templatetags.jsonfield import JSONExtract
 from pretix.plugins.checkinlists.exporters import (
-    PDFCheckinList,
     CBFlowable,
+    PDFCheckinList,
     TableTextRotate,
 )
-from pretix.plugins.reports.exporters import ReportlabExportMixin
+from reportlab.lib.units import mm
+from reportlab.platypus import Paragraph, Spacer, Table, TableStyle
 
 
 class PortraitPDFCheckinList(PDFCheckinList):
@@ -158,9 +127,7 @@ class PortraitPDFCheckinList(PDFCheckinList):
                 name += "<br/>" + iac
 
             payment = op.order.payments.first()
-            if not payment:
-                payment_provider_name = ""
-            elif payment.payment_provider.identifier == "free":
+            if not payment or payment.payment_provider.identifier == "free":
                 payment_provider_name = ""
             else:
                 payment_provider_name = (

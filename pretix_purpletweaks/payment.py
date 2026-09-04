@@ -1,8 +1,8 @@
 from collections import OrderedDict
+
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from pretix.base.payment import ManualPayment, BasePaymentProvider
-from pretix.presale.views.cart import get_or_create_cart_id
+from pretix.base.payment import ManualPayment
 
 from .datediff import (
     DateDiffField,
@@ -11,26 +11,22 @@ from .datediff import (
 )
 
 
-class PurplePaymentMixin(object):
+class PurplePaymentMixin:
     index = 0
     is_implicit = False
 
     @property
     def identifier(self):
-        base = "purple_{}".format(super().identifier)
+        base = f"purple_{super().identifier}"
         if self.index > 0:
             # for backwards compatibility, we add the index to the identifier
             # if it's not the first payment method
-            base += "_{}".format(self.index)
+            base += f"_{self.index}"
         return base
 
     @property
     def verbose_name(self):
-        return "Purple {} {} ({})".format(
-            super().verbose_name,
-            self.index,
-            self.public_name,
-        )
+        return f"Purple {super().verbose_name} {self.index} ({self.public_name})"
 
     @property
     def settings_form_fields(self) -> dict:
