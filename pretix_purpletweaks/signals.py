@@ -94,7 +94,7 @@ def add_additional_contact_question(sender, **kwargs):
             label=_("Provide emergency contact"),
             required=False,
             help_text=_(
-                "Check if you want to provide seperate contact information for the duration of the event."
+                "Check if you want to provide separate contact information for the duration of the event."
             ),
         )
     }
